@@ -10,9 +10,9 @@ namespace website.Services
 {
     public class PlaysService : IPlaysService
     {
-        private readonly ISearchableRepo<PlayModel> repository;
+        private readonly IRepository<PlayModel> repository;
 
-        public PlaysService(ISearchableRepo<PlayModel> repository)
+        public PlaysService(IRepository<PlayModel> repository)
         {
             this.repository = repository;
         }
