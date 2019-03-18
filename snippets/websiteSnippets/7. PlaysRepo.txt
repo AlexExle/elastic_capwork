@@ -1,4 +1,25 @@
- public override async Task<IEnumerable<PlayModel>> Search(string input, SelectSettings settings)
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Elasticsearch.Net;
+using Microsoft.Extensions.Options;
+using Nest;
+using website.Configuration;
+using website.DataLayer.Models;
+using website.Models;
+
+namespace website.DataLayer.Repository
+{
+    public class PlaysRepository : ElasticsearchBaseRepo<PlayModel>, ISearchableRepo<PlayModel>
+    {
+        public PlaysRepository(IElasticClient elasticClient, IOptions<ElasticConfig> config) : base(elasticClient, config)
+        {
+        }   
+		
+		public async Task<IEnumerable<PlayModel>> Search(string input, SelectSettings settings)
         {
             var res = await client.SearchAsync<PlayModel>(q =>
             {
@@ -23,3 +44,6 @@
 
             return res.Hits.Select(h => h.Source);
         }
+    }
+}
+
