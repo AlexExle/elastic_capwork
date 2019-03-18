@@ -1,7 +1,0 @@
-input { stdin { } } 
-output { 
-	elasticsearch {
-		hosts => ["http://localhost:9200"]
-		index => "logs_alex_shab-%{+YYYY.MM}" 
-	} 
-}

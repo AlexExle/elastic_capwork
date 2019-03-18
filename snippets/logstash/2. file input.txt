@@ -1,0 +1,13 @@
+input { 	
+	file {				
+		path => [ "C:/temp/nlog*.json" ]		
+		codec => "plain"
+		start_position => "beginning"
+		sincedb_path => NUL
+	} 
+} 
+filter{
+}
+output { 
+	stdout {}
+}

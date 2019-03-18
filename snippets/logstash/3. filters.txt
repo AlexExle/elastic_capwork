@@ -1,0 +1,38 @@
+input { 
+	file {				
+		path => [ "C:/temp/nlog*.json" ]		
+		codec => "plain"
+		start_position => "beginning"
+		sincedb_path => NUL
+	} 
+} 
+filter {
+
+ mutate {
+		add_field =>  {                                                           
+			"serviceName" => "alex_shab_myApplication"                			
+		}
+	}
+  json {
+		source => "message"
+		target => "payload"
+	}
+   mutate {
+		add_field => {		
+			"log_timestamp" => "%{[payload][time]}"	
+			"level" =>"%{[payload][level]}"	
+		}         
+		replace => {
+		  "message" => "%{[payload][message]}"
+		}
+	}
+	date {
+            match => ["log_timestamp", "ISO8601"]
+            target => "log_timestamp"
+            timezone => "UTC"
+    }
+
+}
+output { 
+	stdout {}
+}

@@ -1,0 +1,5 @@
+elasticsearch {
+	hosts => ["10.6.217.106:9200"]
+	index => "prerun_logs_alex_shab-%{+YYYY.MM}" 
+} 
+
