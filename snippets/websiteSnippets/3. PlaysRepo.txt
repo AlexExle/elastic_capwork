@@ -8,7 +8,6 @@ using Elasticsearch.Net;
 using Microsoft.Extensions.Options;
 using Nest;
 using website.Configuration;
-using website.DataLayer.InitStrategies;
 using website.DataLayer.Models;
 using website.Models;
 
