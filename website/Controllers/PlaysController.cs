@@ -13,7 +13,7 @@ namespace website.Controllers
     {
         private IPlaysService playsService;
 
-        public PlaysController()
+        public PlaysController(IPlaysService playsService)
         {
             this.playsService = playsService;
         }
