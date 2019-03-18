@@ -24,7 +24,7 @@
         <attribute name="event-properties" layout=" ${event-properties:item=EventId_Id}" />
       </layout>
     </target>   
-
+   </targets>
   <!-- rules to map from logger name to target -->
   <rules>
     <!--All logs, including from Microsoft-->
